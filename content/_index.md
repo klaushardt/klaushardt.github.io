@@ -1,5 +1,5 @@
 ---
-title: "Hochzeits-, Paar- & Familienfotografie"
+title: "Hochzeits-, Paar- & Familien­fotografie"
 seo_title: "Philipp Klaushardt – Echte Blicke | Fotograf Duisburg"
 description: "Hochzeits-, Paar- und Familienfotografie in Duisburg und im Ruhrgebiet. Echte Momente statt steifer Posen."
 intro: "Hi, ich bin Philipp, Fotograf und Familienmensch aus Duisburg. Mich interessiert das Echte – kleine Gesten, echte Blicke und Bilder, in denen ihr euch wiederfindet."

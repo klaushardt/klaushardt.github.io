@@ -1,7 +1,7 @@
 {{ define "main" }}
 <header class="shell portfolio-heading">
   <div><p class="kicker">{{ .Params.kicker }}</p><h1>{{ .Title }}</h1><p class="lead">{{ .Params.lead }}</p></div>
-  <div class="portfolio-cover">{{ partial "responsive-image.html" (dict "src" .Params.hero_image "alt" (printf "%s – Originalfoto von Philipp Klaushardt" .Params.kicker) "sizes" "(min-width: 900px) 42vw, 100vw" "loading" "eager") }}</div>
+  <div class="portfolio-cover">{{ partial "responsive-image.html" (dict "src" .Params.hero_image "alt" (printf "%s – Originalfoto von Philipp Klaushardt" .Params.kicker) "sizes" "(min-width: 900px) 42vw, 100vw" "loading" "eager" "fetchpriority" "high") }}</div>
 </header>
 <section class="shell gallery-section" aria-label="Galerie {{ .Title }}"><div class="portfolio-gallery">
   {{ range $index, $image := .Params.gallery }}<figure class="gallery-item">{{ partial "responsive-image.html" (dict "src" $image.src "alt" $image.alt "sizes" "(min-width: 1100px) 32vw, (min-width: 680px) 48vw, 100vw" "loading" (cond (lt $index 3) "eager" "lazy")) }}</figure>{{ end }}

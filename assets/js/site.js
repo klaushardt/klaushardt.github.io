@@ -5,10 +5,12 @@
     const close = () => {
       toggle.setAttribute('aria-expanded', 'false');
       nav.dataset.open = 'false';
+      toggle.setAttribute('aria-label', 'Menü öffnen');
     };
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') !== 'true';
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
       nav.dataset.open = String(open);
     });
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', close));

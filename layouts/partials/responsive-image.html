@@ -3,6 +3,7 @@
 {{- $class := .class | default "" -}}
 {{- $sizes := .sizes | default "(min-width: 1200px) 30vw, (min-width: 700px) 45vw, 100vw" -}}
 {{- $loading := .loading | default "lazy" -}}
+{{- $fetchpriority := .fetchpriority | default "auto" -}}
 {{- $path := strings.TrimPrefix "/" $src -}}
 {{- with resources.Get $path -}}
   {{- $original := . -}}
@@ -15,7 +16,7 @@
 <picture>
   <source type="image/avif" srcset="{{ $smallAvif.RelPermalink }} 480w, {{ $mediumAvif.RelPermalink }} 900w, {{ $largeAvif.RelPermalink }} 1500w" sizes="{{ $sizes }}" />
   <source type="image/webp" srcset="{{ $smallWebp.RelPermalink }} 480w, {{ $mediumWebp.RelPermalink }} 900w, {{ $largeWebp.RelPermalink }} 1500w" sizes="{{ $sizes }}" />
-  <img class="{{ $class }}" src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async"{{ if eq $loading "eager" }} fetchpriority="high"{{ end }} />
+  <img class="{{ $class }}" src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async"{{ if ne $fetchpriority "auto" }} fetchpriority="{{ $fetchpriority }}"{{ end }} />
 </picture>
 {{- else -}}
 <img class="{{ $class }}" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async" />
