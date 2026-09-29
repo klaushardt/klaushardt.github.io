@@ -7,9 +7,9 @@ home_anchor: hochzeit
 price_section: Hochzeit
 kicker: "Hochzeitsfotografie"
 seo_title: "Hochzeitsfotografie in Duisburg und im Ruhrgebiet – Echte Blicke"
-description: "Hochzeitsfotografie von Philipp Klaushardt in Duisburg und im Ruhrgebiet. Verschiedene Pakete nach zeitlichem Umfang."
-card_description: "Begleitung von der Trauung bis zu den Stunden der Feier."
-lead: "Ich biete verschiedene Pakete an, die sich nach dem zeitlichen Umfang richten."
+description: "Unaufgeregte Hochzeitsfotografie in Duisburg und im Ruhrgebiet – passend zu der Begleitung, die ihr euch wünscht."
+card_description: "Vom Ja-Wort bis zu den Stunden der Feier – aufmerksam und unaufdringlich begleitet."
+lead: "Ob standesamtliche Trauung oder ganzer Hochzeitstag: Wählt aus Begleitungen von drei bis zwölf Stunden das passende Paket."
 hero_image: "/images/portfolio/hochzeit/2023-10-14_17.14.27-20231014-17.14.27-_PHI1113-klaushardt.com.jpg"
 og_image: "/images/portfolio/hochzeit/2023-10-14_17.14.27-20231014-17.14.27-_PHI1113-klaushardt.com.jpg"
 gallery:

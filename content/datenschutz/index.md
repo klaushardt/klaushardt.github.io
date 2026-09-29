@@ -3,7 +3,7 @@ title: "Datenschutzerklärung"
 description: "Informationen zur Verarbeitung personenbezogener Daten auf echteblicke.de."
 ---
 
-> **Hinweis zur Prüfung:** Diese Seite orientiert sich an den bisherigen Datenschutzhinweisen und beschreibt die hier implementierte statische Website. Bitte gleichen Sie insbesondere Verträge, Aufbewahrungsfristen und Anbieter-Einstellungen mit Ihrer tatsächlichen Nutzung ab. Diese Texte sind keine Rechtsberatung.
+> **Bitte prüfen:** Diese Hinweise beschreiben die Website und ihre derzeit vorgesehenen Dienste. Gleichen Sie Hosting-, Formspree- und OAuth-Konfigurationen, Aufbewahrungsfristen und Anbieterbedingungen mit der tatsächlichen Nutzung ab. Dies ist keine Rechtsberatung.
 
 ## 1. Verantwortlicher
 
@@ -27,7 +27,7 @@ Rechtsgrundlage ist – soweit anwendbar – Art. 6 Abs. 1 lit. f DSGVO (berecht
 
 Wenn Sie das Kontaktformular absenden, werden Ihre Eingaben an den Formularanbieter **Formspree** übermittelt und zur Bearbeitung Ihrer Anfrage an den Websitebetreiber weitergeleitet. Verarbeitet werden die ausgefüllten Felder, insbesondere Name (falls angegeben), E-Mail-Adresse, Interesse, die dazu passenden Angaben zu Ort/Zeitraum, Personen/Kinderalter oder Hochzeitsdatum/Location, Nachricht sowie freiwillige Angaben dazu, wie Sie auf die Website aufmerksam geworden sind. Zusätzlich wird das erforderliche Datenschutz-Kontrollkästchen übermittelt.
 
-Der Versand an Formspree erfolgt erst, wenn Sie das Formular selbst absenden. Das Formular verwendet den bereits auf der Quellwebsite sichtbaren Formspree-Endpunkt. Formspree beschreibt in seinen [Datenschutzhinweisen](https://formspree.io/legal/privacy-policy/), weltweit tätig zu sein, technische Infrastruktur auch in den USA zu nutzen und personenbezogene Daten je nach Dienstleistung auch in die USA und andere Länder zu übertragen. Die Richtlinie beschreibt eine Speicherung, solange sie für die genannten Zwecke erforderlich ist; sie nennt keine feste, für jedes Konto geltende Aufbewahrungsfrist. Prüfen Sie die aktuellen Hinweise und die Einstellungen Ihres Formspree-Kontos.
+Der Versand an Formspree erfolgt erst, wenn Sie das Formular selbst absenden. Formspree beschreibt in seinen [Datenschutzhinweisen](https://formspree.io/legal/privacy-policy/), weltweit tätig zu sein, technische Infrastruktur auch in den USA zu nutzen und personenbezogene Daten je nach Dienstleistung auch in die USA und andere Länder zu übertragen. Die Richtlinie beschreibt eine Speicherung, solange sie für die genannten Zwecke erforderlich ist; sie nennt keine feste, für jedes Konto geltende Aufbewahrungsfrist. Prüfen Sie die aktuellen Hinweise und die Einstellungen Ihres Formspree-Kontos.
 
 Für Anfragen im Zusammenhang mit einem Auftrag oder einer möglichen Beauftragung ist Art. 6 Abs. 1 lit. b DSGVO die einschlägige Grundlage, soweit anwendbar; bei sonstigen Anfragen kommt insbesondere Art. 6 Abs. 1 lit. f DSGVO oder eine erteilte Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) in Betracht. Die Daten werden gelöscht, sobald der Zweck der Bearbeitung entfällt und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Der Websitebetreiber muss die Verarbeitung, Laufzeit und Vereinbarungen des eigenen Formspree-Kontos sowie dessen Datenschutzhinweise vor dem Livebetrieb prüfen.
 
@@ -58,7 +58,3 @@ Daten werden nur weitergegeben, soweit dies zur technischen Bereitstellung, zur 
 ### SSL-/TLS-Verschlüsselung
 
 Diese Website ist für HTTPS vorgesehen. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Browseradresse mit „https://“ beginnt. Eine Verschlüsselung schützt die Übertragung zwischen Ihrem Browser und dem angesprochenen Dienst, kann aber nicht jeden möglichen Zugriff Dritter ausschließen.
-
-## 8. Nicht verwendete Dienste der bisherigen Website
-
-Die bisherige Datenschutzerklärung nannte Netcup, Google Fonts, eingebettete Instagram-Funktionen und Google reCAPTCHA. Diese Version der statischen Website bindet diese Dienste nicht ein. Sollte der Betreiber später zusätzliche Analyse-, Marketing-, CAPTCHA- oder Einbettungsdienste ergänzen, sind Website-Code und Datenschutzerklärung vor deren Aktivierung entsprechend zu aktualisieren.

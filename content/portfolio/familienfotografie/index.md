@@ -7,9 +7,9 @@ home_anchor: familie
 price_section: Familie
 kicker: "Familienfotografie"
 seo_title: "Familienfotografie in Duisburg und im Ruhrgebiet – Echte Blicke"
-description: "Familienfotografie von Philipp Klaushardt in Duisburg und im Ruhrgebiet – in eurem Tempo und ohne Druck."
-card_description: "Im Tempo eurer Kinder, geduldig und entspannt."
-lead: "Ich begleite euch mindestens zwei bis etwa drei Stunden. Wir gehen gemeinsam spazieren und halten schöne Momente fest. Wir richten uns nach dem Tempo eurer Kinder und machen das Ganze ohne Druck."
+description: "Natürliche Familienfotografie in Duisburg und im Ruhrgebiet – entspannt, geduldig und im Tempo eurer Kinder."
+card_description: "Gemeinsam draußen unterwegs – ohne Druck und mit Zeit für die Kinder."
+lead: "Wir gehen gemeinsam spazieren und nehmen uns zwei bis etwa drei Stunden. Dabei richten wir uns nach dem Tempo eurer Kinder – ganz ohne Druck."
 hero_image: "/images/portfolio/familie/2024-11-10_13.02.40-_PHI0639-klaushardt.com.jpeg"
 og_image: "/images/portfolio/familie/2024-11-10_13.02.40-_PHI0639-klaushardt.com.jpeg"
 gallery:

@@ -7,9 +7,9 @@ home_anchor: paare
 price_section: Paare
 kicker: "Paarfotografie"
 seo_title: "Paarfotografie in Duisburg und im Ruhrgebiet – Echte Blicke"
-description: "Paarfotografie von Philipp Klaushardt in Duisburg und im Ruhrgebiet. Ungezwungene Bilder bei einem gemeinsamen Spaziergang."
-card_description: "Zwei Stunden gemeinsam spazieren und schöne Momente festhalten."
-lead: "Ich begleite euch zwei Stunden. Wir gehen gemeinsam spazieren und halten schöne Momente fest."
+description: "Natürliche Paarfotografie in Duisburg und im Ruhrgebiet – beim Spaziergang, ganz ohne steife Posen."
+card_description: "Zwei Stunden, ein gemeinsamer Spaziergang und Zeit für die kleinen Momente."
+lead: "Bei einem gemeinsamen Spaziergang nehmen wir uns zwei Stunden Zeit. Ohne feste Posen halte ich fest, was euch verbindet."
 hero_image: "/images/portfolio/paare/2025-04-05_17.14.01-_PHI0372-klaushardt.com-2.jpg"
 og_image: "/images/portfolio/paare/2025-04-05_17.14.01-_PHI0372-klaushardt.com-2.jpg"
 gallery:

@@ -2,17 +2,16 @@
 {{ $portfolio := .Site.GetPage "/portfolio" }}
 <section class="shell hero">
   <div class="hero-copy">
-    <p class="eyebrow">Hochzeits-, Paar- &amp; Familienfotografie · Duisburg</p>
+    <p class="eyebrow">Hochzeit · Paare · Familien in Duisburg</p>
     <h1>{{ .Title }}</h1>
     <p class="lead">{{ .Params.description }}</p>
-    <p>{{ .Params.intro }}</p>
-    <div class="actions"><a class="button" href="{{ "/kontakt/" | relURL }}">Jetzt unverbindlich anfragen</a><a class="text-link" href="{{ "/me/" | relURL }}">Über Philipp</a></div>
+    <div class="actions"><a class="button" href="{{ "/kontakt/" | relURL }}">Anfrage senden</a><a class="text-link" href="#portfolio-title">Galerien ansehen</a></div>
   </div>
-  <div class="hero-image">{{ partial "responsive-image.html" (dict "src" .Params.hero_image "alt" .Params.hero_alt "class" "hero-photo" "sizes" "(min-width: 900px) 42vw, 100vw" "loading" "eager" "fetchpriority" "high") }}</div>
+  <div class="hero-image">{{ partial "responsive-image.html" (dict "src" .Params.hero_image "alt" .Params.hero_alt "class" "hero-photo" "sizes" "(min-width: 1215px) 1160px, 92vw" "loading" "eager" "fetchpriority" "high") }}</div>
 </section>
 
 <section class="section shell" aria-labelledby="portfolio-title">
-  <div class="section-heading"><p class="kicker">Echte Momente statt steifer Posen</p><h2 id="portfolio-title">Geschichten, die nach euch aussehen.</h2><p>Ungezwungen, mit natürlichem Licht und einem Blick für das Wesentliche – draußen, in der Stadt oder bei euch zuhause.</p></div>
+  <div class="section-heading"><p class="kicker">Echte Momente statt steifer Posen</p><h2 id="portfolio-title">Geschichten, die nach euch aussehen.</h2><p>Mit natürlichem Licht und einem Blick für das Wesentliche – draußen, in der Stadt oder bei euch zuhause.</p></div>
   <div class="category-grid">
     {{ range $category := $portfolio.Pages.ByWeight }}
       {{ $photos := $category.Params.gallery }}

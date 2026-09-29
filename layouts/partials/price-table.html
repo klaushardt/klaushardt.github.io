@@ -1,0 +1,15 @@
+{{- $section := .section -}}
+<div class="price-table-wrap">
+  <table class="price-table" aria-label="Preise für {{ $section.title }}">
+    <thead><tr><th scope="col">Paket / Leistung</th><th scope="col">Umfang</th><th scope="col">Preis</th></tr></thead>
+    <tbody>
+      {{ range $section.packages }}
+      <tr>
+        <th scope="row">{{ .title }}</th>
+        <td>{{ .description }}</td>
+        <td class="price-cell"><span class="price">{{ .price }}</span></td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>
