@@ -1,0 +1,145 @@
+backend:
+  name: github
+  repo: REPLACE_WITH_OWNER/REPOSITORY
+  branch: main
+  base_url: https://REPLACE_WITH_WORKER.workers.dev
+  auth_endpoint: auth
+  site_domain: echteblicke.de
+
+site_url: https://echteblicke.de
+locale: de
+publish_mode: simple
+media_folder: assets/images/portfolio/uploads
+public_folder: /images/portfolio/uploads
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: portfolios
+    label: Portfolio-Kategorien
+    label_singular: Portfolio-Kategorie
+    folder: content/portfolio
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    path: "{{slug}}/index"
+    filter:
+      field: layout
+      value: portfolio
+    media_folder: /assets/images/portfolio/{{slug}}
+    public_folder: /images/portfolio/{{slug}}
+    summary: "{{title}} · {{kicker}}"
+    sortable_fields: [weight, title]
+    fields:
+      - { label: Seitentitel, name: title, widget: string }
+      - { label: Layout-Typ, name: layout, widget: hidden, default: portfolio }
+      - { label: Reihenfolge (klein zuerst), name: weight, widget: number, default: 4, value_type: int }
+      - { label: Anker auf der Startseite, name: home_anchor, widget: string, required: false, hint: "Für bestehende Kategorien den aktuellen Anker beibehalten; neue Kategorien können den Ordner-Slug verwenden." }
+      - { label: Öffentliche URL, name: url, widget: string, required: false, hint: "Bestehende Kategorie-URL beibehalten. Bei einer neuen Kategorie leer lassen; sie erhält automatisch /portfolio/<slug>/." }
+      - { label: Rubrik, name: kicker, widget: string }
+      - { label: SEO-Titel, name: seo_title, widget: string, required: false }
+      - { label: SEO-Beschreibung, name: description, widget: text }
+      - { label: Kurztext auf Start- und Übersichtsseite, name: card_description, widget: text }
+      - { label: Einleitungstext, name: lead, widget: text }
+      - { label: Preise aus FAQ übernehmen, name: price_section, widget: select, required: false, options: [Paare, Hochzeit, Familie] }
+      - { label: Titelbild, name: hero_image, widget: image }
+      - { label: Open-Graph-Bild, name: og_image, widget: image, required: false }
+      - label: Galerie
+        name: gallery
+        widget: list
+        min: 1
+        summary: "{{fields.alt}}"
+        fields:
+          - { label: Foto, name: src, widget: image }
+          - { label: Alternativtext, name: alt, widget: string }
+
+  - name: startseite
+    label: Startseite
+    files:
+      - name: home
+        label: Startseite
+        file: content/_index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Suchmaschinen-Titel, name: seo_title, widget: string }
+          - { label: Beschreibung, name: description, widget: text }
+          - { label: Einleitung, name: intro, widget: text }
+          - { label: Titelbild, name: hero_image, widget: image }
+          - { label: Bildbeschreibung, name: hero_alt, widget: string }
+
+  - name: seiten
+    label: Weitere Seiten
+    files:
+      - name: me
+        label: Über mich
+        file: content/me/index.md
+        media_folder: /assets/images/site/uploads
+        public_folder: /images/site/uploads
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Rubrik, name: kicker, widget: string }
+          - { label: Beschreibung für Suchmaschinen, name: description, widget: text }
+          - { label: Porträt, name: portrait, widget: image }
+          - { label: Alternativtext Porträt, name: portrait_alt, widget: string }
+          - { label: Biografie, name: body, widget: markdown }
+      - name: faq
+        label: Preise & FAQ
+        file: content/faq/index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Rubrik, name: kicker, widget: string }
+          - { label: Beschreibung für Suchmaschinen, name: description, widget: text }
+          - label: Preisbereiche
+            name: pricing
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Kategorie, name: title, widget: string }
+              - { label: Rubrik, name: lead, widget: string }
+              - { label: Beschreibung, name: details, widget: text }
+              - { label: Bereichsfoto, name: image, widget: image, required: false }
+              - { label: Alternativtext, name: image_alt, widget: string, required: false }
+              - label: Pakete
+                name: packages
+                widget: list
+                summary: "{{fields.title}} · {{fields.price}}"
+                fields:
+                  - { label: Titel, name: title, widget: string }
+                  - { label: Preis, name: price, widget: string }
+                  - { label: Beschreibung, name: description, widget: text }
+                  - { label: Paketfoto, name: image, widget: image, required: false }
+                  - { label: Alternativtext, name: alt, widget: string, required: false }
+          - label: Häufige Fragen
+            name: faqs
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { label: Frage, name: question, widget: string }
+              - { label: Antwort, name: answer, widget: text }
+      - name: kontakt
+        label: Kontakt
+        file: content/kontakt/index.md
+        media_folder: /assets/images/portfolio/uploads
+        public_folder: /images/portfolio/uploads
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Rubrik, name: kicker, widget: string }
+          - { label: Einleitung, name: lead, widget: text }
+          - { label: Beschreibung für Suchmaschinen, name: description, widget: text }
+          - { label: Kontaktmotiv, name: image, widget: image }
+          - { label: Bildbeschreibung, name: image_alt, widget: string }
+      - name: impressum
+        label: Impressum
+        file: content/impressum/index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Inhalt, name: body, widget: markdown }
+      - name: datenschutz
+        label: Datenschutz
+        file: content/datenschutz/index.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Inhalt, name: body, widget: markdown }

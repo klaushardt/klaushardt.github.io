@@ -1,0 +1,8 @@
+name = "echteblicke-decap-oauth"
+main = "src/index.js"
+compatibility_date = "2025-10-29"
+workers_dev = true
+
+[vars]
+SITE_ORIGIN = "https://echteblicke.de"
+CALLBACK_URL = "https://REPLACE_WITH_WORKER.workers.dev/callback"
