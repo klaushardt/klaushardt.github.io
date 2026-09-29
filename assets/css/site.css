@@ -1150,3 +1150,319 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Full-bleed homepage photo hero */
+.home-page .site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 30;
+  border-bottom-color: rgba(250, 246, 233, 0.2);
+  background: linear-gradient(180deg, rgba(21, 23, 26, 0.56), rgba(21, 23, 26, 0));
+}
+
+.home-page .site-header .brand-name,
+.home-page .site-header .primary-nav a,
+.home-page .site-header .nav-toggle {
+  color: var(--paper);
+}
+
+.home-page .site-header .brand-note {
+  color: rgba(250, 246, 233, 0.82);
+}
+
+.home-page .site-header .primary-nav a:hover,
+.home-page .site-header .primary-nav a[aria-current="page"] {
+  border-bottom-color: rgba(250, 246, 233, 0.85);
+  color: var(--paper);
+}
+
+.home-page .site-header .nav-toggle {
+  border-color: rgba(250, 246, 233, 0.55);
+  background: rgba(21, 23, 26, 0.24);
+}
+
+.home-page .home-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding-block: clamp(7rem, 14vh, 10rem) clamp(2.5rem, 8vh, 6rem);
+  background: var(--ink);
+}
+
+.home-page .home-hero__media,
+.home-page .home-hero__media picture,
+.home-page .home-hero__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-page .home-hero__media {
+  z-index: -2;
+  overflow: hidden;
+}
+
+.home-page .home-hero__photo {
+  object-fit: cover;
+  object-position: 53% center;
+}
+
+.home-page .home-hero::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 11, 12, 0.6) 0%, rgba(10, 11, 12, 0.32) 45%, rgba(10, 11, 12, 0.02) 100%),
+    linear-gradient(0deg, rgba(10, 11, 12, 0.64) 0%, rgba(10, 11, 12, 0.12) 58%, rgba(10, 11, 12, 0.18) 100%);
+  content: "";
+}
+
+.home-page .home-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .home-hero__copy {
+  max-width: 44rem;
+  margin: 0;
+  color: var(--paper);
+  text-align: left;
+}
+
+.home-page .home-hero__copy .eyebrow {
+  color: rgba(250, 246, 233, 0.9);
+}
+
+.home-page .home-hero__copy h1 {
+  max-width: 11ch;
+  color: var(--paper);
+  font-size: clamp(3rem, 6.6vw, 5.6rem);
+  letter-spacing: -0.05em;
+}
+
+.home-page .home-hero__copy .lead {
+  max-width: 38ch;
+  margin-inline: 0;
+  color: rgba(250, 246, 233, 0.92);
+  font-size: clamp(1rem, 1.5vw, 1.22rem);
+}
+
+.home-page .home-hero__copy .actions {
+  justify-content: flex-start;
+  margin-top: 1.45rem;
+}
+
+.home-page .home-hero__copy .button {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.home-page .home-hero__copy .button:hover {
+  border-color: #fff;
+  background: #fff;
+  color: var(--ink);
+}
+
+.home-page .home-hero__copy .text-link,
+.home-page .home-hero__copy .text-link:hover {
+  color: var(--paper);
+}
+
+@media (max-width: 899px) {
+  .home-page .site-header .primary-nav[data-open="true"] {
+    border-bottom-color: var(--line);
+    background: var(--paper);
+  }
+
+  .home-page .site-header .primary-nav[data-open="true"] a,
+  .home-page .site-header .primary-nav[data-open="true"] a:hover,
+  .home-page .site-header .primary-nav[data-open="true"] a[aria-current="page"] {
+    border-bottom-color: var(--line);
+    color: var(--ink);
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page .home-hero {
+    padding-top: 7.5rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .home-page .home-hero__photo {
+    object-position: 53% center;
+  }
+
+  .home-page .home-hero::after {
+    background: linear-gradient(0deg, rgba(10, 11, 12, 0.78) 0%, rgba(10, 11, 12, 0.24) 68%, rgba(10, 11, 12, 0.36) 100%);
+  }
+
+  .home-page .home-hero__copy h1 {
+    max-width: 10ch;
+    font-size: clamp(2.75rem, 12vw, 3.6rem);
+  }
+}
+
+/* Progressive, keyboard-accessible portfolio lightbox */
+.gallery-trigger {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+  text-align: left;
+  text-decoration: none;
+}
+
+.gallery-trigger picture {
+  display: block;
+  width: 100%;
+}
+
+.gallery-trigger:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid var(--paper);
+  outline-offset: -5px;
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--paper);
+}
+
+.lightbox[open] {
+  display: block;
+}
+
+.lightbox::backdrop {
+  background: rgba(9, 10, 12, 0.95);
+}
+
+.lightbox__figure {
+  position: absolute;
+  inset: 4rem 5rem 3.25rem;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.lightbox__image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.lightbox__caption {
+  display: flex;
+  width: min(100%, 60rem);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(250, 246, 233, 0.88);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.lightbox__count {
+  flex: 0 0 auto;
+  color: rgba(250, 246, 233, 0.68);
+  font-variant-numeric: tabular-nums;
+}
+
+.lightbox__control {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(250, 246, 233, 0.55);
+  border-radius: 50%;
+  padding: 0;
+  background: rgba(21, 23, 26, 0.5);
+  color: var(--paper);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.lightbox__control:hover {
+  border-color: var(--paper);
+  background: rgba(21, 23, 26, 0.9);
+  color: #fff;
+}
+
+.lightbox__control:focus-visible {
+  outline-color: var(--paper);
+}
+
+.lightbox__close {
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 2rem;
+}
+
+.lightbox__previous,
+.lightbox__next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__previous {
+  left: 0.75rem;
+}
+
+.lightbox__next {
+  right: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .lightbox__figure {
+    inset: 4rem 3.5rem 3.25rem;
+  }
+
+  .lightbox__previous {
+    left: 0.25rem;
+  }
+
+  .lightbox__next {
+    right: 0.25rem;
+  }
+
+  .lightbox__caption {
+    align-items: flex-start;
+    font-size: 0.75rem;
+  }
+}
+
+
+/* Let the long homepage title use the available overlay width naturally. */
+.home-page .home-hero__copy h1 {
+  max-width: 16ch;
+}

@@ -5,8 +5,23 @@
 </header>
 <section class="shell gallery-section" aria-label="Galerie {{ .Title }}"><div class="portfolio-gallery">
   {{ $heroImage := .Params.hero_image }}
-  {{ range $index, $image := .Params.gallery }}{{ if ne $image.src $heroImage }}<figure class="gallery-item">{{ partial "responsive-image.html" (dict "src" $image.src "alt" $image.alt "sizes" "(min-width: 1100px) 32vw, (min-width: 680px) 48vw, 100vw" "loading" (cond (lt $index 3) "eager" "lazy")) }}</figure>{{ end }}{{ end }}
+  {{ range $index, $image := .Params.gallery }}
+    {{ if ne $image.src $heroImage }}
+      {{ $imagePath := strings.TrimPrefix "/" $image.src }}
+      {{ with resources.Get $imagePath }}
+        <figure class="gallery-item"><a class="gallery-trigger" href="{{ .RelPermalink }}" data-lightbox-open data-lightbox-src="{{ .RelPermalink }}" data-lightbox-alt="{{ $image.alt }}" aria-label="Bild vergrößern: {{ $image.alt }}">{{ partial "responsive-image.html" (dict "src" $image.src "alt" $image.alt "sizes" "(min-width: 1100px) 32vw, (min-width: 680px) 48vw, 100vw" "loading" (cond (lt $index 3) "eager" "lazy")) }}</a></figure>
+      {{ else }}
+        <figure class="gallery-item"><a class="gallery-trigger" href="{{ $image.src | relURL }}" data-lightbox-open data-lightbox-src="{{ $image.src | relURL }}" data-lightbox-alt="{{ $image.alt }}" aria-label="Bild vergrößern: {{ $image.alt }}">{{ partial "responsive-image.html" (dict "src" $image.src "alt" $image.alt "sizes" "(min-width: 1100px) 32vw, (min-width: 680px) 48vw, 100vw" "loading" (cond (lt $index 3) "eager" "lazy")) }}</a></figure>
+      {{ end }}
+    {{ end }}
+  {{ end }}
 </div></section>
+<dialog class="lightbox" data-lightbox aria-label="Großansicht der Galerie {{ .Title }}" aria-describedby="lightbox-caption">
+  <button class="lightbox__control lightbox__close" type="button" data-lightbox-close aria-label="Großansicht schließen">×</button>
+  <button class="lightbox__control lightbox__previous" type="button" data-lightbox-previous aria-label="Vorheriges Bild"><span aria-hidden="true">←</span></button>
+  <figure class="lightbox__figure"><img class="lightbox__image" data-lightbox-image alt="" /><figcaption class="lightbox__caption" id="lightbox-caption"><span data-lightbox-caption></span><span class="lightbox__count" data-lightbox-count aria-live="polite"></span></figcaption></figure>
+  <button class="lightbox__control lightbox__next" type="button" data-lightbox-next aria-label="Nächstes Bild"><span aria-hidden="true">→</span></button>
+</dialog>
 {{ $faq := .Site.GetPage "/faq" }}
 {{ range $faq.Params.pricing }}
   {{ if eq .title $.Params.price_section }}

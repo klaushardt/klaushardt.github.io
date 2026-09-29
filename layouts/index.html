@@ -1,13 +1,17 @@
 {{ define "main" }}
 {{ $portfolio := .Site.GetPage "/portfolio" }}
-<section class="shell hero">
-  <div class="hero-copy">
-    <p class="eyebrow">Hochzeit · Paare · Familien in Duisburg</p>
-    <h1>{{ .Title }}</h1>
-    <p class="lead">{{ .Params.description }}</p>
-    <div class="actions"><a class="button" href="{{ "/kontakt/" | relURL }}">Anfrage senden</a><a class="text-link" href="#portfolio-title">Galerien ansehen</a></div>
+<section class="home-hero" aria-labelledby="home-title">
+  <div class="home-hero__media">
+    {{ partial "responsive-image.html" (dict "src" .Params.hero_image "alt" .Params.hero_alt "class" "home-hero__photo" "sizes" "100vw" "loading" "eager" "fetchpriority" "high") }}
   </div>
-  <div class="hero-image">{{ partial "responsive-image.html" (dict "src" .Params.hero_image "alt" .Params.hero_alt "class" "hero-photo" "sizes" "(min-width: 1215px) 1160px, 92vw" "loading" "eager" "fetchpriority" "high") }}</div>
+  <div class="shell home-hero__inner">
+    <div class="hero-copy home-hero__copy">
+      <p class="eyebrow">Hochzeit · Paare · Familien in Duisburg</p>
+      <h1 id="home-title">{{ .Title }}</h1>
+      <p class="lead">{{ .Params.description }}</p>
+      <div class="actions"><a class="button" href="{{ "/kontakt/" | relURL }}">Anfrage senden</a><a class="text-link" href="#portfolio-title">Galerien ansehen</a></div>
+    </div>
+  </div>
 </section>
 
 <section class="section shell" aria-labelledby="portfolio-title">
