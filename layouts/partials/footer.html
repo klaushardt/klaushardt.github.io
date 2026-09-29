@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div><a class="footer-brand" href="{{ "/" | relURL }}">Echte Blicke</a><p class="footer-note">Philipp Klaushardt · Fotograf aus Duisburg</p></div>
+      <nav class="footer-nav" aria-label="Fußnavigation">
+        <a href="{{ "/portfolio/" | relURL }}">Portfolio</a>
+        {{ with .Site.GetPage "/portfolio" }}{{ range .Pages.ByWeight }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}{{ end }}
+        <a href="{{ "/me/" | relURL }}">Über mich</a><a href="{{ "/faq/" | relURL }}">Preise &amp; FAQ</a><a href="{{ "/kontakt/" | relURL }}">Kontakt</a>
+        <a href="{{ .Site.Params.whatsapp_url }}" rel="noopener noreferrer">WhatsApp</a>
+        {{ with .Site.Params.instagram_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Instagram</a>{{ end }}
+        <a href="{{ "/impressum/" | relURL }}">Impressum</a><a href="{{ "/datenschutz/" | relURL }}">Datenschutz</a>
+      </nav>
+    </div>
+    <div class="footer-bottom"><span>© {{ now.Year }} Philipp Klaushardt · Made with ❤️ in Duisburg</span><a href="mailto:{{ .Site.Params.contact_email }}">{{ .Site.Params.contact_email }}</a></div>
+  </div>
+</footer>

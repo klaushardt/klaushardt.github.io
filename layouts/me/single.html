@@ -1,0 +1,7 @@
+{{ define "main" }}
+<header class="shell page-hero"><p class="kicker">{{ .Params.kicker }}</p><h1>{{ .Title }}</h1></header>
+<section class="shell about-layout section--compact">
+  <div class="about-image">{{ partial "responsive-image.html" (dict "src" .Params.portrait "alt" .Params.portrait_alt "sizes" "(min-width: 900px) 40vw, 100vw" "loading" "eager") }}</div>
+  <article class="prose-block">{{ .Content }}<div class="actions"><a class="button" href="{{ "/kontakt/" | relURL }}">Jetzt unverbindlich anfragen</a></div></article>
+</section>
+{{ end }}

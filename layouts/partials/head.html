@@ -1,0 +1,31 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {{ $description := .Site.Home.Params.description }}
+  {{ with .Params.description }}{{ $description = . }}{{ end }}
+  {{ $title := .Site.Title }}
+  {{ if not .IsHome }}{{ $title = printf "%s | Echte Blicke" .Title }}{{ end }}
+  {{ with .Params.seo_title }}{{ $title = . }}{{ end }}
+  {{ $description = $description | plainify | htmlUnescape | strings.TrimSpace | truncate 158 }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $description }}" />
+  <meta name="theme-color" content="#faf6e9" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml" />
+  <link rel="preload" href="{{ "fonts/Lora-Variable-v1.ttf" | relURL }}" as="font" type="font/ttf" crossorigin />
+  {{ $style := resources.Get "css/site.css" | minify | fingerprint "sha256" }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+  {{ if or .Params.noindex (eq .Kind "404") }}<meta name="robots" content="noindex,follow" />{{ end }}
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+  <meta property="og:site_name" content="Echte Blicke" />
+  <meta property="og:title" content="{{ $title }}" />
+  <meta property="og:description" content="{{ $description }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  {{ $ogImage := default .Site.Params.og_image .Params.og_image }}
+  {{ with .Params.hero_image }}{{ $ogImage = . }}{{ end }}
+  {{ if $ogImage }}{{ $ogURL := strings.TrimPrefix "/" $ogImage | absURL }}<meta property="og:image" content="{{ $ogURL }}" />{{ end }}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ $title }}" />
+  <meta name="twitter:description" content="{{ $description }}" />
+  {{ if $ogImage }}<meta name="twitter:image" content="{{ strings.TrimPrefix "/" $ogImage | absURL }}" />{{ end }}
+</head>

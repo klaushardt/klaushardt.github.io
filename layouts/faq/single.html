@@ -1,0 +1,23 @@
+{{ define "main" }}
+<header class="shell page-hero"><p class="kicker">{{ .Params.kicker }}</p><h1>{{ .Title }}</h1><p class="lead">Die folgenden Preise und Leistungen stammen aus der bisherigen Website.</p></header>
+<div class="shell pricing-sections">
+  {{ range $index, $section := .Params.pricing }}
+  <section class="pricing-section" aria-labelledby="pricing-{{ $index }}">
+    <div class="pricing-section__intro"><div><p class="kicker">{{ $section.lead }}</p><h2 id="pricing-{{ $index }}">{{ $section.title }}</h2></div>
+      {{ with $section.image }}<div class="pricing-section__image">{{ partial "responsive-image.html" (dict "src" . "alt" $section.image_alt "sizes" "(min-width: 900px) 40vw, 100vw") }}</div>{{ end }}
+    </div>
+    {{ with $section.details }}<p class="pricing-section__details">{{ . }}</p>{{ end }}
+    <div class="pricing-list">
+      {{ range $section.packages }}{{ $package := . }}
+      <article class="price-card">
+        {{ with $package.image }}<div class="package-media">{{ partial "responsive-image.html" (dict "src" . "alt" $package.alt "sizes" "(min-width: 900px) 40vw, 100vw") }}</div>{{ end }}
+        <header><h3>{{ $package.title }}</h3><span class="price">{{ $package.price }}</span></header><p>{{ $package.description }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</div>
+<section class="cta-band"><div class="shell cta-inner"><div><p class="kicker">Paar · Hochzeit · Familie</p><h2>Habt ihr noch Fragen?</h2><p>Schreibt mir gern – ich melde mich in der Regel innerhalb von 48 Stunden.</p></div><a class="button" href="{{ "/kontakt/" | relURL }}">Jetzt unverbindlich anfragen</a></div></section>
+<section class="section shell" aria-labelledby="faq-heading"><div class="section-heading"><p class="kicker">Gut zu wissen</p><h2 id="faq-heading">Häufige Fragen</h2></div><div class="faq-list">{{ range .Params.faqs }}<details><summary>{{ .question }}</summary><p>{{ .answer }}</p></details>{{ end }}</div></section>
+{{ end }}

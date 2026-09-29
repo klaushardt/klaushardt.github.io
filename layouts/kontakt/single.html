@@ -1,0 +1,23 @@
+{{ define "main" }}
+<header class="shell page-hero"><p class="kicker">{{ .Params.kicker }}</p><h1>{{ .Title }}</h1><p class="lead">{{ .Params.lead }}</p></header>
+<section class="shell contact-layout section--compact">
+  <div>
+    <form class="contact-form" data-contact-form action="https://formspree.io/f/movbozro" method="post" accept-charset="UTF-8">
+      <label class="honeypot" aria-hidden="true">Bitte dieses Feld frei lassen<input type="text" name="Website" tabindex="-1" autocomplete="off" /></label>
+      <div class="field"><label for="name">Name (optional)</label><input id="name" name="Name" type="text" autocomplete="name" placeholder="z. B. Anna &amp; Lukas Müller" /></div>
+      <div class="field"><label for="email-address">E-Mail (erforderlich)</label><input id="email-address" name="Email" type="email" autocomplete="email" placeholder="name@domain.de" required /></div>
+      <div class="field wide"><label for="interest">Worum geht es?</label><select id="interest" name="Interesse"><option value="">Bitte wählt ein Thema (optional)</option><option value="Paarshooting">Paarshooting</option><option value="Familienfotos">Familienfotos</option><option value="Hochzeit">Hochzeit</option><option value="Eigenes Projekt">Eigenes Projekt</option></select></div>
+      <div class="conditional-group wide" data-interest-group="Paarshooting"><div class="field"><label for="paar-wunschort">Wunschort</label><input id="paar-wunschort" name="Paar_Wunschort" placeholder="z. B. am See bei Sonnenuntergang oder in der Altstadt" /></div><div class="field"><label for="paar-zeitraum">Zeitraum</label><input id="paar-zeitraum" name="Paar_Zeitraum" placeholder="z. B. im Mai oder Juni unter der Woche abends" /></div></div>
+      <div class="conditional-group wide" data-interest-group="Familienfotos"><div class="field"><label for="familie-personen">Personen</label><input id="familie-personen" name="Familie_Personen" placeholder="z. B. 4 Personen" /></div><div class="field"><label for="familie-alter">Alter der Kinder</label><input id="familie-alter" name="Familie_Alter" placeholder="z. B. 3 und 6 Jahre" /></div></div>
+      <div class="conditional-group wide" data-interest-group="Hochzeit"><div class="field"><label for="hochzeitsdatum">Hochzeitsdatum</label><input id="hochzeitsdatum" type="date" name="Hochzeitsdatum" /></div><div class="field"><label for="hochzeitslocation">Hochzeitslocation</label><input id="hochzeitslocation" name="Hochzeitslocation" placeholder="z. B. Landgut am Hochwald in Sonsbeck" /></div></div>
+      <div class="field wide"><label for="message">Nachricht</label><textarea id="message" name="Nachricht" rows="6" placeholder="Was plant ihr? Was ist euch besonders wichtig?"></textarea></div>
+      <fieldset class="field wide"><legend>Wie seid ihr auf mich aufmerksam geworden?</legend><div class="check-grid"><label class="field--check"><input type="checkbox" name="Quelle[]" value="Instagram" /> Instagram</label><label class="field--check"><input type="checkbox" name="Quelle[]" value="Empfehlung" /> Empfehlung</label><label class="field--check"><input type="checkbox" name="Quelle[]" value="Google" /> Google</label><label class="field--check"><input type="checkbox" name="Quelle[]" value="Sonstiges" /> Sonstiges</label></div></fieldset>
+      <div class="conditional-group wide" data-source-group="Instagram"><div class="field"><label for="instagram-handle">Instagram-Name (optional)</label><input id="instagram-handle" name="Instagram" placeholder="@username" /></div></div>
+      <div class="conditional-group wide" data-source-group="Sonstiges"><div class="field"><label for="source-other">Weitere Angabe</label><input id="source-other" name="Quelle_Sonstiges_Details" placeholder="Erzählt mir gern kurz mehr" /></div></div>
+      <label class="field--check wide"><input type="checkbox" name="Datenschutz" value="Ja" required /> <span>Ich habe die <a href="{{ "/datenschutz/" | relURL }}">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu.</span></label>
+      <p class="form-feedback wide" data-form-feedback aria-live="polite"></p><button class="button wide" type="submit">Nachricht senden</button>
+    </form>
+  </div>
+  <aside><div class="contact-image">{{ partial "responsive-image.html" (dict "src" .Params.image "alt" .Params.image_alt "sizes" "(min-width: 900px) 36vw, 100vw") }}</div><div class="contact-direct"><a href="mailto:{{ .Site.Params.contact_email }}">{{ .Site.Params.contact_email }}</a><a href="tel:{{ .Site.Params.phone }}">{{ .Site.Params.phone_display }}</a><a href="{{ .Site.Params.whatsapp_url }}" rel="noopener noreferrer">Per WhatsApp schreiben</a></div></aside>
+</section>
+{{ end }}

@@ -1,0 +1,21 @@
+{{ define "main" }}
+<header class="shell portfolio-heading">
+  <div><p class="kicker">{{ .Params.kicker }}</p><h1>{{ .Title }}</h1><p class="lead">{{ .Params.lead }}</p></div>
+  <div class="portfolio-cover">{{ partial "responsive-image.html" (dict "src" .Params.hero_image "alt" (printf "%s – Originalfoto von Philipp Klaushardt" .Params.kicker) "sizes" "(min-width: 900px) 42vw, 100vw" "loading" "eager") }}</div>
+</header>
+<section class="shell gallery-section" aria-label="Galerie {{ .Title }}"><div class="portfolio-gallery">
+  {{ range $index, $image := .Params.gallery }}<figure class="gallery-item">{{ partial "responsive-image.html" (dict "src" $image.src "alt" $image.alt "sizes" "(min-width: 1100px) 32vw, (min-width: 680px) 48vw, 100vw" "loading" (cond (lt $index 3) "eager" "lazy")) }}</figure>{{ end }}
+</div></section>
+{{ $faq := .Site.GetPage "/faq" }}
+{{ range $faq.Params.pricing }}
+  {{ if eq .title $.Params.price_section }}
+  <section class="section shell portfolio-info" aria-labelledby="portfolio-price-title">
+    <div class="section-heading"><p class="kicker">{{ .lead }}</p><h2 id="portfolio-price-title">Leistungen &amp; Preise</h2></div>
+    <p class="pricing-section__details">{{ .details }}</p>
+    <div class="pricing-list">{{ range .packages }}<article class="price-card"><header><h3>{{ .title }}</h3><span class="price">{{ .price }}</span></header><p>{{ .description }}</p></article>{{ end }}</div>
+    <p class="portfolio-more"><a class="text-link" href="{{ "/faq/" | relURL }}">Alle Preise und häufige Fragen ansehen&nbsp;→</a></p>
+  </section>
+  {{ end }}
+{{ end }}
+<section class="cta-band"><div class="shell cta-inner"><div><p class="kicker">{{ .Params.kicker }} · Duisburg</p><h2>Erzählt mir, was ihr plant.</h2><p>Ich melde mich in der Regel innerhalb von 48 Stunden.</p></div><a class="button" href="{{ "/kontakt/" | relURL }}">Jetzt unverbindlich anfragen</a></div></section>
+{{ end }}

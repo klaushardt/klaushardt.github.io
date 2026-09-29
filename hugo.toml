@@ -1,0 +1,44 @@
+baseURL = "https://echteblicke.de/"
+locale = "de-DE"
+defaultContentLanguage = "de"
+title = "Echte Blicke – Philipp Klaushardt"
+description = "Hochzeits-, Paar- und Familienfotografie in Duisburg und im Ruhrgebiet. Echte Momente statt steifer Posen."
+enableRobotsTXT = true
+enableGitInfo = false
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  photographer = "Philipp Klaushardt"
+  contact_email = "kontakt@echteblicke.de"
+  privacy_email = "datenschutz@echteblicke.de"
+  phone = "+4915678871879"
+  phone_display = "0156 78871879"
+  whatsapp_url = "https://wa.me/message/U6AOWT5KRNKJP1"
+  instagram_url = "https://www.instagram.com/echteblicke/"
+  service_area = ["Duisburg", "Gelsenkirchen", "Düsseldorf", "Essen", "Mülheim", "Oberhausen", "Bochum"]
+  og_image = "/images/portfolio/paare/2025-04-05_17.14.01-_PHI0372-klaushardt.com-2.jpg"
+
+[params.address]
+  streetAddress = "Kalkweg 110"
+  addressLocality = "Duisburg"
+  postalCode = "47055"
+  addressCountry = "DE"
+
+[imaging]
+  resampleFilter = "Lanczos"
+
+[imaging.jpeg]
+  quality = 82
+
+[imaging.webp]
+  quality = 82
+
+[imaging.avif]
+  quality = 70
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.goldmark.parser.attribute]
+  block = true
+  title = true

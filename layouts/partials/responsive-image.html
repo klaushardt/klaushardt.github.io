@@ -1,0 +1,22 @@
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $sizes := .sizes | default "(min-width: 1200px) 30vw, (min-width: 700px) 45vw, 100vw" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $path := strings.TrimPrefix "/" $src -}}
+{{- with resources.Get $path -}}
+  {{- $original := . -}}
+  {{- $smallAvif := .Resize "480x avif q70" -}}
+  {{- $mediumAvif := .Resize "900x avif q70" -}}
+  {{- $largeAvif := .Resize "1500x avif q70" -}}
+  {{- $smallWebp := .Resize "480x webp q82" -}}
+  {{- $mediumWebp := .Resize "900x webp q82" -}}
+  {{- $largeWebp := .Resize "1500x webp q82" -}}
+<picture>
+  <source type="image/avif" srcset="{{ $smallAvif.RelPermalink }} 480w, {{ $mediumAvif.RelPermalink }} 900w, {{ $largeAvif.RelPermalink }} 1500w" sizes="{{ $sizes }}" />
+  <source type="image/webp" srcset="{{ $smallWebp.RelPermalink }} 480w, {{ $mediumWebp.RelPermalink }} 900w, {{ $largeWebp.RelPermalink }} 1500w" sizes="{{ $sizes }}" />
+  <img class="{{ $class }}" src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async"{{ if eq $loading "eager" }} fetchpriority="high"{{ end }} />
+</picture>
+{{- else -}}
+<img class="{{ $class }}" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async" />
+{{- end -}}

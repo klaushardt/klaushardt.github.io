@@ -1,0 +1,5 @@
+{{- $address := dict "@type" "PostalAddress" "streetAddress" .Site.Params.address.streetAddress "addressLocality" .Site.Params.address.addressLocality "postalCode" .Site.Params.address.postalCode "addressCountry" .Site.Params.address.addressCountry -}}
+{{- $area := slice -}}
+{{- range .Site.Params.service_area -}}{{- $area = $area | append (dict "@type" "City" "name" .) -}}{{- end -}}
+{{- $business := dict "@context" "https://schema.org" "@type" "LocalBusiness" "name" "Echte Blicke – Philipp Klaushardt" "url" .Site.BaseURL "image" (printf "%s%s" .Site.BaseURL (strings.TrimPrefix "/" .Site.Params.og_image)) "telephone" .Site.Params.phone "email" .Site.Params.contact_email "address" $address "areaServed" $area "sameAs" (slice .Site.Params.instagram_url .Site.Params.whatsapp_url) -}}
+<script type="application/ld+json">{{ $business | jsonify | safeJS }}</script>
